@@ -1,0 +1,68 @@
+/* Base reusable pieces */
+.container { max-width: 1152px; }
+
+.card {
+  @supports (backdrop-filter: blur(4px)) {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+  }
+  background: #fff;
+  border: 1px solid #e6f4ea;
+  border-radius: 1rem;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.65rem 1rem; border-radius: 0.75rem;
+  background: #166534; color: #fff; font-weight: 700;
+  transition: transform .05s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 8px 20px rgba(22, 101, 52, 0.15);
+}
+.btn-primary:hover { background: #15803d; }
+.btn-primary:active { transform: translateY(1px); }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.65rem 1rem; border-radius: 0.75rem;
+  background: #f0fdf4; color: #166534; font-weight: 700;
+  border: 1px solid #bbf7d0;
+}
+.btn-secondary:hover { background: #dcfce7; }
+
+/* Inputs */
+.input {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  outline: none;
+}
+.input:focus { border-color: #86efac; box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25); }
+
+/* Spinner */
+.spinner {
+  width: 28px; height: 28px;
+  border: 3px solid #e2e8f0; border-top-color: #16a34a;
+  border-radius: 9999px; animation: spin 0.9s linear infinite;
+  margin: 6px auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Section title */
+.section-title {
+  font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: #064e3b;
+}
+
+/* Stat card */
+.stat-card {
+  background: #f0fdf4; border: 1px solid #bbf7d0;
+  border-radius: 1rem; padding: 1.25rem; text-align: center;
+}
+
+/* Product card image placeholder */
+.skeleton {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 37%, #f1f5f9 63%);
+  background-size: 400% 100%; animation: shine 1.4s ease infinite;
+}
+@keyframes shine { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }

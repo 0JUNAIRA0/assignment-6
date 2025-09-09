@@ -1,43 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Earth</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Green Earth</title>
 
-    <!-- tailwind & daisyUI CDN -->
-<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <!-- Tailwind config must load BEFORE the CDN script -->
+  <script src="./tailwind.config.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- css -->
- <link rel="stylesheet" href="style.css">
-
+  <!-- App styles -->
+  <link rel="stylesheet" href="style.css"/>
 </head>
-<body>
-    
+<body class="bg-green-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="border-b border-green-200 bg-white/80 backdrop-blur sticky top-0 z-50">
+    <nav class="container mx-auto px-4 py-3 flex items-center gap-4">
+      <!-- Left: Logo/Name -->
+      <a href="#" class="text-2xl font-black tracking-tight text-green-800">Green Earth</a>
+
+      <!-- Center: Menu -->
+      <ul class="hidden md:flex mx-auto items-center gap-6 text-sm font-medium text-gray-700">
+  <li><a class="hover:text-green-700" href="#about">About</a></li>
+  <li><a class="hover:text-green-700" href="#gallery">Gallery</a></li>
+  <li><a class="hover:text-green-700" href="#donate">Plant a Tree</a></li>
+</ul>
 
 
+      <!-- Right: CTA -->
+      <a href="#donate" class="btn-primary">Plant a Tree</a>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section
+    class="relative bg-cover bg-center"
+    style="background-image:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop');"
+  >
+    <div class="bg-black/40">
+      <div class="container mx-auto px-4 py-20 text-center text-white">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Plant a Tree, Grow a Future</h1>
+        <p class="max-w-2xl mx-auto opacity-90">
+          Join our mission to restore greenery, support biodiversity, and make cities cooler & cleaner.
+        </p>
+        <a href="#catalog" class="btn-secondary mt-6 inline-block">Explore Trees</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <main class="container mx-auto px-4 py-10" id="catalog">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Categories (left) -->
+      <aside class="lg:col-span-3">
+        <div class="card p-4">
+          <h2 class="text-lg font-semibold mb-3">Categories</h2>
+
+          <!-- Loading spinner for categories -->
+          <div id="cat-spinner" class="hidden">
+            <div class="spinner"></div>
+          </div>
+
+          <div id="category-list" class="flex flex-col gap-2">
+            <!-- Category buttons injected here -->
+          </div>
+        </div>
+      </aside>
+
+      <!-- Cards (center) -->
+      <section class="lg:col-span-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl font-semibold">Choose Your Trees</h2>
+          <div id="cards-count" class="text-sm text-gray-500"></div>
+        </div>
+
+        <!-- Loading spinner for cards -->
+        <div id="cards-spinner" class="hidden mb-4">
+          <div class="spinner"></div>
+        </div>
+
+        <div id="cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Product cards injected here -->
+        </div>
+      </section>
+
+      <!-- Cart (right) -->
+      <aside class="lg:col-span-3">
+        <div class="card p-4 sticky top-24">
+          <h2 class="text-lg font-semibold mb-3">Your Cart</h2>
+          <ul id="cart-list" class="space-y-2 mb-3">
+            <!-- Cart items injected here -->
+          </ul>
+          <div class="flex items-center justify-between font-semibold border-t pt-3">
+            <span>Total</span>
+            <span id="cart-total">$0</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- About Campaign -->
+    <section id="about" class="mt-16">
+      <h2 class="section-title">About the Campaign</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <img
+          src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop"
+          alt="Plant"
+          class="rounded-2xl shadow"
+        />
+        <div class="card p-6">
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Trees combat climate change by absorbing CO₂.</li>
+            <li>They provide habitat for wildlife and improve soil health.</li>
+            <li>Urban trees reduce heat and improve mental wellbeing.</li>
+            <li>Your contribution directly funds community planting drives.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+
+    <section id="gallery" class="mt-16">
+  <h2 class="section-title">Gallery</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=800&auto=format&fit=crop" class="rounded-2xl shadow" alt="Tree 1"/>
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800&auto=format&fit=crop" class="rounded-2xl shadow" alt="Tree 2"/>
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=800&auto=format&fit=crop" class="rounded-2xl shadow" alt="Tree 3"/>
+  </div>
+</section>
 
 
+    <!-- Our Impact -->
+    <section id="impact" class="mt-16">
+      <h2 class="section-title">Our Impact</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="stat-card">
+          <div class="text-3xl font-extrabold">500K+</div>
+          <div class="text-gray-600">Trees Planted</div>
+        </div>
+        <div class="stat-card">
+          <div class="text-3xl font-extrabold">120+</div>
+          <div class="text-gray-600">Communities Reached</div>
+        </div>
+        <div class="stat-card">
+          <div class="text-3xl font-extrabold">30+</div>
+          <div class="text-gray-600">Countries</div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Donate / Form -->
+    <section id="donate" class="mt-16">
+      <h2 class="section-title">Plant a Tree Today</h2>
+      <form class="card p-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+        <input type="text" placeholder="Your Name" class="input" required />
+        <input type="email" placeholder="Your Email" class="input" required />
+        <input type="number" min="1" placeholder="Number of Trees" class="input" required />
+        <button type="submit" class="btn-primary md:col-span-3">Donate Now</button>
+      </form>
+    </section>
+  </main>
 
+  <!-- Footer -->
+  <footer class="bg-green-900 text-green-100 mt-16">
+    <div class="container mx-auto px-4 py-8 text-center">
+      © <span id="year"></span> Green Earth. All rights reserved.
+    </div>
+  </footer>
 
+  <!-- Modal -->
+  <div id="modal-overlay" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full shadow-lg overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b">
+        <h3 id="modal-title" class="text-lg font-semibold">Plant Details</h3>
+        <button id="modal-close" class="p-2 rounded hover:bg-gray-100" aria-label="Close">✕</button>
+      </div>
+      <div id="modal-body" class="p-5 space-y-3">
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script src="script.js"></script>
+  <!-- App script -->
+  <script src="./app.js" defer></script>
 </body>
 </html>
