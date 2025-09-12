@@ -25,7 +25,7 @@ const loadCategories = (categories) => {
       <button 
         id="categoryBtn${category.id}" 
         onclick="loadTrees(${category.id})" 
-        class="py-1 px-3 text-black rounded-md hover:bg-green-100 hover:text-green-800 w-full border border-transparent focus:outline-none active-category-btn btn"
+        class="py-1 px-3 text-black rounded-md hover:bg-green-800 hover:text-black-800 w-full border border-transparent focus:outline-none active-category-btn btn"
       >
         ${category.category_name}
       </button>
